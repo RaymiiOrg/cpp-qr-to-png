@@ -2,7 +2,7 @@
 
 A bridge between two great libraries, [QR-Code-Generator][1] and [Tiny-PNG-Out][2].
 
-[View this page on https://raymii.org].
+[View this page on https://raymii.org][6].
 
 ![qr code example][3]
  
