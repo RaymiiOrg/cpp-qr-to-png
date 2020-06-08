@@ -16,6 +16,19 @@ It is correct up until 700 megapixel PNG files, which I hope your QR code never 
 I've written a class which bridges the two together, allowing you to both generate
 the QR code and write it to a PNG file, scaled up to be as readable as possible.
 
+[If you like this class, consider sponsoring me by trying out a Digital Ocean
+VPS. With this link you'll get $100 credit for 60 days). (referral link)][99]
+
+[99]: https://www.digitalocean.com/?refcode=7435ae6b8212
+
+The code is simple and has comments explaining why things happen. It's easy
+to adapt and integrate into your own project, since it does not require any
+external dependencies (like `qrencode` or `libpng`), which, in my case, is 
+useful due to size limitations on an embedded platform. 
+
+Credit where credit is due, all the heavy lifting is done by the two libraries,
+my class is just a convinience you could write yourself in an hour or so.
+
 ## Size, scaled up?
 
 A QR code consists out of modules, otherwise known as the black and white dots. 
