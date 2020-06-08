@@ -2,6 +2,8 @@
 
 A bridge between two great libraries, [QR-Code-Generator][1] and [Tiny-PNG-Out][2].
 
+[View this page on https://raymii.org].
+
 ![qr code example][3]
  
 The QR-Code-Generator library by Project Nayuki for C++ gives you an easy, fast and 
@@ -138,3 +140,4 @@ Licenses are also includes in the `libs/` folders.
 [3]: example1.png
 [4]: example2.png
 [5]: brown.png
+[6]: https://raymii.org/s/software/Cpp_generate_qr_code_and_write_it_to_png_scaled.html
