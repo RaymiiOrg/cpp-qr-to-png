@@ -65,6 +65,10 @@ You can provide a minimal module pixel size. If you want to encode a small code 
 the pixels to be, lets say, at least 2 pixels wide for better scanability, you can ask
 the class. If it is able to scale up, it will write the file, otherwise it will return false.
 
+The QR code is written row by row, to avoid first constructing a large `vector`. This causes 
+more `I/O`. If you want to change it, it's quite easy. When constructing a `20148x20148` qr code,
+RAM usage was around 2 GB when constructing the whole image first and then writing it, but it's 
+at max 5MB when writing row by row.  
 
 ## Build instructions
 

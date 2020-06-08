@@ -53,18 +53,12 @@ private:
     bool _overwriteExistingFile;
     qrcodegen::QrCode::Ecc _ecc;
 
-    /** returns a vector with each element being a RGB 8.8.8 pixel
-     * intended to be used with the _writePNGfile method, the
+    /** Writes the PNG file. Constructs a vector with
+     * each element being a row of RGB 8.8.8 pixels, the
      * format is geared towards the tinypngoutput library.
      * @param qrData the code returned by the qrcodegen library
-     * @returns said vector OR an empty vector if the code data is
-     * too large / doesnt fit inside the image.
-     */
-    [[nodiscard]] std::vector<uint8_t> _qrPixelDataForPNGWriter(const qrcodegen::QrCode &qrData) const;
-
-    /* writes the data in @PIXELS to _filename as PNG. @SIZE is width / height
-     * of the image, the same since its a square. */
-    void _writePNGfile(std::vector<uint8_t> PIXELS, uint32_t SIZE);
+     * @return true if file could be written, false if file could not be written */
+    [[nodiscard]] bool _writeToPNG(const qrcodegen::QrCode &qrData) const;
 
     /* returns the width/height of the image based on the max image size
     * and qr width. Ex. If the max img size is 90, the qr code size 29
