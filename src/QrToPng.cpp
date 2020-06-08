@@ -65,12 +65,11 @@ std::vector<uint8_t> QrToPng::_qrPixelDataForPNGWriter(const qrcodegen::QrCode &
         for (int rowY = 0; rowY < qrSizeFitsInMaxImgSizeTimes; ++rowY) {
             for (int qrModuleAtX = 0; qrModuleAtX < qrSize; qrModuleAtX++) {
                 for (int rowX = 0; rowX < qrSizeFitsInMaxImgSizeTimes; ++rowX) {
-                    for (int i = 0; i < 3; ++i) {
-                        if (qrData.getModule(qrModuleAtX, qrModuleAtY)) {
-                            PIXELS.push_back(blackPixel);
-                        } else {
-                            PIXELS.push_back(whitePixel);
-                        }
+                    if (qrData.getModule(qrModuleAtX, qrModuleAtY)) {
+                        // insert saves us a for loop or 3 times the same line.
+                        PIXELS.insert(PIXELS.end(), {blackPixel, blackPixel, blackPixel});
+                    } else {
+                        PIXELS.insert(PIXELS.end(), {whitePixel, whitePixel, whitePixel});
                     }
                 }
             }

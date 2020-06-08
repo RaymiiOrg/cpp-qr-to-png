@@ -4,18 +4,19 @@ A bridge between two great libraries, [QR-Code-Generator][1] and [Tiny-PNG-Out][
 
 ![qr code example][3]
  
-The QR-Code-Generator library for C++ gives you an easy, fast and correct way to 
-generate QR codes. However, you get just a data structure, showing that data is up
-to you. An example is provided to print the code to a terminal, but not to create 
-and actual image file. 
+The QR-Code-Generator library by Project Nayuki for C++ gives you an easy, fast and 
+correct way to generate QR codes. However, you get just a data structure, showing 
+that data is up to you. An example is provided to print the code to a terminal, 
+but not to create and actual image file. For Java, there is an example provided 
+which writes a PNG file, but not for C++. 
 
 The author of the library also has another C++ library, [Tiny-PNG-Out][2]. 
 It is correct up until 700 megapixel PNG files, which I hope your QR code never hits.
 
 I've written a class which bridges the two together, allowing you to both generate
-the QR code and write it to a PNG file. 
+the QR code and write it to a PNG file, scaled up to be as readable as possible.
 
-## Size?
+## Size, scaled up?
 
 A QR code consists out of modules, otherwise known as the black and white dots. 
 The library gives you a data structure where each dot is either a 1 or 0, (black/white).
@@ -34,7 +35,7 @@ the black dots `0x8B, 0x45, 0x14` instead of `0x00, 0x00, 0x00`:
 
 ![brown][5]
 
-To make sure the code is readable, I calculate how many times it fits inside the
+To make sure the code is readable, I calculate how many times the code fits inside the
 requested image size. If the QR code reports that it's size is 23, that means,
 in the context of our png library, we must write 23 modules as one row of pixels,
 then start a new row. But if you've requested a 600x600px image, that would be way
@@ -50,28 +51,23 @@ the pixels to be, lets say, at least 2 pixels wide for better scanability, you c
 the class. If it is able to scale up, it will write the file, otherwise it will return false.
 
 
-
 ## Build instructions
 
-- Clone this git repository. You get both projects included.
-
+Clone this git repository. You get both projects included.
 
     git clone bla
     cd bla
     
-- Create a build folder:
-
+Create a build folder:
 
     mkdir build
     cd build
     
-- Run CMake:
-
+Run CMake:
 
     cmake ..
     
-- Run Make:
-
+Run Make:
 
     make all
 
@@ -88,6 +84,8 @@ Running it should generate 3 example QR codes:
     Success!
     Writing Example QR code 3 (huge) to example3.png with text: 'https://raymii.org', size: 1080x1080, qr module pixel size: 20. 
     Success!
+
+However, the built version of this program is not very usefull, it's about the code itself.
 
 ### Examples
 
@@ -122,7 +120,6 @@ Tiny PNG Out:
     
 Licenses are also includes in the `libs/` folders.
     
-
 [1]: https://www.nayuki.io/page/qr-code-generator-library
 [2]: https://www.nayuki.io/page/tiny-png-output
 [3]: example1.png
