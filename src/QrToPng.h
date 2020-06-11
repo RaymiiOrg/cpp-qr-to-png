@@ -64,6 +64,8 @@ private:
     * and qr width. Ex. If the max img size is 90, the qr code size 29
     * the qr module pixel size will be 3, the image size will be 3*29=87. */
     [[nodiscard]] uint32_t _imgSize(const qrcodegen::QrCode &qrData) const;
+
+    [[nodiscard]] uint32_t _imgSizeWithBorder(const qrcodegen::QrCode &qrData) const;
 };
 
 #endif //QR_TO_PNG_H
